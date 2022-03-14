@@ -1,4 +1,4 @@
-package com.QiBaochao.week2;
+package com.QiBaochao.week2.homework;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

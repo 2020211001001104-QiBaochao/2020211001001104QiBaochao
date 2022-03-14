@@ -14,7 +14,7 @@
 <h2>This Is My Homework_Code Exercise#1</h2>
 <a href="http://localhost:8080/QiBaochao2020211001001104_war_exploded/qbc">Please Click Here^.^</a><br>
 <h2>New User Registration!</h2><br/><br/>
-<form method="post" action="/QiBaochao2020211001001104_war_exploded">
+<form method="post" action="/register">
    Userame:<input type="text" name="Username" placeholder ="Username" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;" required autofocus><br/>
     Password:<input type="password" name="password" minlength="8" placeholder ="Password" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;"><br/>
    Email:  <input type="email" name="Email" placeholder ="Email" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;"required autofocus><br/>
