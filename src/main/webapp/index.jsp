@@ -16,9 +16,5 @@
 <body>
 <h1>Hello! My dear teacher ^o^</h1><br>
 <h2>I am QiBaochao(2020211001001104)</h2>
-<br>
-<h2>I am glad to be your student!</h2>
-<br>
-<h2>I hope you are happy everyday,my teacher!</h2>
 </body>
 </html>

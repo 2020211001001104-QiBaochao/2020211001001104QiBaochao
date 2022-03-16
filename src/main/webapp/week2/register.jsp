@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Register_QiBaocaho</title>
+    <title>Register_QiBaochao</title>
 </head>
 <body>
 <h2>This Is My Homework_Code Exercise#1</h2>
