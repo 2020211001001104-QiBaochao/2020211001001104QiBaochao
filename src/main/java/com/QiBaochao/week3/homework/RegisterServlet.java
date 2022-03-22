@@ -1,13 +1,13 @@
 package com.QiBaochao.week3.homework;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
-
-@WebServlet(urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {
     Connection con=null;//class variable
     @Override
@@ -44,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String gender = request.getParameter("gender");
-        String birthDate = request.getParameter("birthDate");
+        String birthdate = request.getParameter("birthdate");
 
 
         String sql="insert into usertable values(?,?,?,?,?)";
@@ -54,7 +54,7 @@ public class RegisterServlet extends HttpServlet {
             preparedStatement.setString(2,password);
             preparedStatement.setString(3,email);
             preparedStatement.setString(4,gender);
-            preparedStatement.setString(5,birthDate);
+            preparedStatement.setString(5,birthdate);
             preparedStatement.execute();
 
             PrintWriter out=response.getWriter();
@@ -63,8 +63,8 @@ public class RegisterServlet extends HttpServlet {
             ResultSet resultSet=preparedStatement.executeQuery();
             out.println("<html><body>");
             out.println("<table border='2'>");
-            out.println("<tr><th>ID</th><th>username</th><th>password</th><th>email</th><th>gender</th><th>birthDate</th></tr>");
-            out.println("<tr><th>"+1+"</th><th>"+username+"</th><th>"+password+"</th><th>"+email+"</th><th>"+gender+"</th><th>"+birthDate+"</th></tr>");
+            out.println("<tr><th>ID</th><th>username</th><th>password</th><th>email</th><th>gender</th><th>birthdate</th></tr>");
+            out.println("<tr><th>"+1+"</th><th>"+username+"</th><th>"+password+"</th><th>"+email+"</th><th>"+gender+"</th><th>"+birthdate+"</th></tr>");
             out.println("</table>");
             out.println("</body></html>");
         } catch (SQLException e) {
