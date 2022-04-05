@@ -6,15 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>QiBaochao</title>
-</head>
-<head>
-    <title>1104QiBaochao</title>
-</head>
 <body>
-<h1>Hello! My dear teacher ^o^</h1><br>
-<h2>I am QiBaochao(2020211001001104)</h2>
+<h2>Welcome to My Online Shop Home Page</h2> <br>
+<form method="get" target="_blank" action="search">
+    <input type="text" name="txt" size=30/>
+    <select name="search">
+        <option value="Baidu">Baidu</option>
+        <option value="Bing">Bing</option>
+        <option value="Google">Google</option>
+    </select>
+    <input type="submit" value="Search"/>
+</form>
+<%@include file="footer.jsp"%>
 </body>
-</html>
