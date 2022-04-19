@@ -2,77 +2,100 @@ package com.QiBaochao.week3.homework;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+@WebServlet(name = "RegisterServlet", value = "/register")
 public class RegisterServlet extends HttpServlet {
-    Connection con=null;//class variable
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
     @Override
     public void init() throws ServletException {
-        super.init();
-        ServletContext context=getServletContext();
-        String driver=context.getInitParameter("driver");
-        String url=context.getInitParameter("url");
-        String username=context.getInitParameter("username");
-        String password=context.getInitParameter("password");
+        /*
+        ServletContext application = getServletContext();
+        String driver = application.getInitParameter("driver");
+        String url = application.getInitParameter("url");
+        String username = application.getInitParameter("Username");
+        String password = application.getInitParameter("Password");
         try {
             Class.forName(driver);
-            con= DriverManager.getConnection(url,username,password);
-            System.out.println("Connection --> in Register "+con);
-        } catch (ClassNotFoundException| SQLException e) {
+            conn = DriverManager.getConnection(url, username, password);
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+         */
+        conn = (Connection) getServletContext().getAttribute("conn");
     }
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        PrintWriter writer = response.getWriter();
-//        writer.println("<br>username :"+username);
-//        writer.println("<br>password :"+password);
-//        writer.println("<br>email :"+email);
-//        writer.println("<br>gender :"+gender);
-//        writer.println("<br>birth Date :"+birthDate);
-//        writer.close();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String gender = request.getParameter("gender");
-        String birthdate = request.getParameter("birthdate");
+        String birthday = request.getParameter("birthday");
 
+        //response.setContentType("text/html");
+        //PrintWriter out = response.getWriter();
 
-        String sql="insert into usertable values(?,?,?,?,?)";
         try {
-            PreparedStatement preparedStatement=con.prepareStatement(sql);
-            preparedStatement.setString(1,username);
-            preparedStatement.setString(2,password);
-            preparedStatement.setString(3,email);
-            preparedStatement.setString(4,gender);
-            preparedStatement.setString(5,birthdate);
-            preparedStatement.execute();
+            String sql1 = "insert into Usertable(username, password, email, gender, birthdate) values(?,?,?,?,?)";
+            ps = conn.prepareStatement(sql1);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setString(3, email);
+            ps.setString(4, gender);
+            ps.setDate(5, Date.valueOf(birthday));
+            int num = ps.executeUpdate();
+            System.out.println("num-->" + num);
 
-            PrintWriter out=response.getWriter();
-            sql="select * from usertable";
-            preparedStatement=con.prepareStatement(sql);
-            ResultSet resultSet=preparedStatement.executeQuery();
-            out.println("<html><body>");
-            out.println("<table border='2'>");
-            out.println("<tr><th>ID</th><th>username</th><th>password</th><th>email</th><th>gender</th><th>birthdate</th></tr>");
-            out.println("<tr><th>"+1+"</th><th>"+username+"</th><th>"+password+"</th><th>"+email+"</th><th>"+gender+"</th><th>"+birthdate+"</th></tr>");
-            out.println("</table>");
-            out.println("</body></html>");
+            /*
+            String sql2 = "select * from Usertable";
+            ps = conn.prepareStatement(sql2);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                String id = rs.getString("id");
+                String username2 = rs.getString("username");
+                String password2 = rs.getString("password");
+                String email2 = rs.getString("email");
+                String gender2 = rs.getString("gender");
+                String birthday2 = rs.getString("birthdate");
+            }
+             */
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-
-
-
+    }
+    @Override
+    public void destroy() {
+        if (rs!=null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (ps!=null){
+            try {
+                ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

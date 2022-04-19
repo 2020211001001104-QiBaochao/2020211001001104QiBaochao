@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp"%>
+
 <h1>Login</h1>
 <%
     if (!(request.getAttribute("message")==null)){
-        //error
         out.println("<h3>"+request.getAttribute("message")+"</h3>");
     }
 %>
@@ -19,5 +19,4 @@
     password<input type="password" name="password"/><br/>
     <input type="submit" value="Login"/>
 </form>
-
 <%@include file="footer.jsp"%>

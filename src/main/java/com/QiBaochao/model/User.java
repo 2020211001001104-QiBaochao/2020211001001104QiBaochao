@@ -1,19 +1,21 @@
 package com.QiBaochao.model;
 
 
-import java.util.Date;
+import java.sql.Date;
+
 public class User {
     private int id;
     private String username;
     private String password;
     private String email;
     private String gender;
-    private java.util.Date birthDate;
+    private String birthDate;
+    //constructor
 
-    public  User(){
+    public User() {
     }
 
-    public User(int id, String username, String password, String email, String gender, Date birthDate) {
+    public User(int id, String username, String password, String email, String gender, String birthDate) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -62,17 +64,17 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "user{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -81,3 +83,4 @@ public class User {
                 ", birthDate=" + birthDate +
                 '}';
     }
+}
