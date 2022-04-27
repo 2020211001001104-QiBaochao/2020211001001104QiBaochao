@@ -58,9 +58,34 @@
 <!--        <url-pattern>/jdbc</url-pattern>-->
 <!--    </servlet-mapping>-->
 
-    <welcome-file-list>
-        <welcome-file>home</welcome-file>
-    </welcome-file-list>
+<!--    <welcome-file-list>-->
+<!--        <welcome-file>home</welcome-file>-->
+<!--    </welcome-file-list>-->
+
+    <filter>
+        <filter-name>AdminAuthenticationFilter</filter-name>
+        <filter-class>com.QiBaochao.filter.AdminAuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminAuthenticationFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>HelloFilter</filter-name>
+        <filter-class>com.QiBaochao.filter.HelloFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HelloFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>FrontEndAuthenticationFilter</filter-name>
+        <filter-class>com.QiBaochao.filter.FrontEndAuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FrontEndAuthenticationFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
 
 </web-app>
 

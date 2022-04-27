@@ -1,9 +1,7 @@
 package com.QiBaochao.model;
 
-
-import java.sql.Date;
-
 public class User {
+
     private int id;
     private String username;
     private String password;
@@ -14,6 +12,7 @@ public class User {
 
     public User() {
     }
+    //full
 
     public User(int id, String username, String password, String email, String gender, String birthDate) {
         this.id = id;
@@ -23,6 +22,8 @@ public class User {
         this.gender = gender;
         this.birthDate = birthDate;
     }
+
+    //getter and setter
 
     public int getId() {
         return id;
@@ -71,6 +72,8 @@ public class User {
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
+
+    //toString
 
     @Override
     public String toString() {
