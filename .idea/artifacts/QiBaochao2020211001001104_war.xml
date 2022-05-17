@@ -9,6 +9,12 @@
     </properties>
     <root id="archive" name="QiBaochao2020211001001104-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="QiBaochao2020211001001104:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mssql-jdbc-6.4.0.jre8" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="QiBaochao2020211001001104/web/Web2" />
     </root>
   </artifact>
 </component>
