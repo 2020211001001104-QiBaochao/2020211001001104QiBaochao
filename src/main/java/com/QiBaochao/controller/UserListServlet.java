@@ -15,6 +15,7 @@ public class UserListServlet extends HttpServlet {
         con = (Connection)getServletContext().getAttribute("con");
     }
 
+
     public void destory(){
         super.destroy();
     }

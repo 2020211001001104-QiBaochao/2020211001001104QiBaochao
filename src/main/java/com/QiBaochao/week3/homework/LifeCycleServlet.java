@@ -59,6 +59,8 @@ public class LifeCycleServlet extends HttpServlet {
     @Override
     public void destroy() {
 
+
+
         System.out.println("I am in destroy()  ");//when ?- stop tomcat
         try {
             con.close();

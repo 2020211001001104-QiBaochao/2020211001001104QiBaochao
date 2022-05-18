@@ -90,6 +90,8 @@
 						</ul>
 						<a class="btn btn-default update" href="<%=basePath%>shop">Update</a>
 						<a class="btn btn-default check_out" href="<%=basePath%>order">Order</a>
+
+
 =======
 		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 		<section id="cart_items">
