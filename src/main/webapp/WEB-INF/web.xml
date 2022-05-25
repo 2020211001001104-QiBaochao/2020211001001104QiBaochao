@@ -48,7 +48,14 @@
         <param-name>password</param-name>
         <param-value>qbc020610</param-value>
     </context-param>
-
+    <filter>
+        <filter-name>QiBaochaoFilter</filter-name>
+        <filter-class>com.QiBaochao.lab2.QiBaochaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>QiBaochaoFilter</filter-name>
+        <url-pattern>/lab2/welcome.jsp</url-pattern>
+    </filter-mapping>
 <!--    <servlet>-->
 <!--        <servlet-name>JDBCDemoServlet</servlet-name>-->
 <!--        <servlet-class>com.QiBaochao.week4.homework.JDBCDemoServlet</servlet-class>-->
@@ -62,31 +69,34 @@
 <!--        <welcome-file>home</welcome-file>-->
 <!--    </welcome-file-list>-->
 
-    <filter>
-        <filter-name>AdminAuthenticationFilter</filter-name>
-        <filter-class>com.QiBaochao.filter.AdminAuthenticationFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>AdminAuthenticationFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>HelloFilter</filter-name>
-        <filter-class>com.QiBaochao.filter.HelloFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>HelloFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>FrontEndAuthenticationFilter</filter-name>
-        <filter-class>com.QiBaochao.filter.FrontEndAuthenticationFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>FrontEndAuthenticationFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>AdminAuthenticationFilter</filter-name>-->
+<!--        <filter-class>com.QiBaochao.filter.AdminAuthenticationFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>AdminAuthenticationFilter</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
+<!--    <filter>-->
+<!--        <filter-name>HelloFilter</filter-name>-->
+<!--        <filter-class>com.QiBaochao.filter.HelloFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>HelloFilter</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
+<!--    <filter>-->
+<!--        <filter-name>FrontEndAuthenticationFilter</filter-name>-->
+<!--        <filter-class>com.QiBaochao.filter.FrontEndAuthenticationFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>FrontEndAuthenticationFilter</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
 
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
 </web-app>
 
 
